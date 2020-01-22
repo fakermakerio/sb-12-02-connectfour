@@ -1,0 +1,188 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Comfortaa', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background: #eee;
+}
+
+button:focus, input:focus {
+	outline: 0;
+}
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	letter-spacing: -.1rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+h1 .accent {
+	color: #c00;
+}
+
+#players-form {
+	background: #fff;
+	border: 1px solid #666;
+	border-radius: .5rem;
+	box-shadow: 0px 1px 14px 5px rgba(0,0,0,.3);
+	display: none;
+	left: 50%;
+	margin: 0 auto;
+	padding: 3rem;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 999;
+}
+
+form .form-field-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.3rem;
+}
+form .form-field-group:last-child {
+	margin-bottom: 0;
+}
+form .form-field {
+	background: #fff;
+	border: 1px solid rgba(0,0,0,.3);
+	border-radius: 3rem;
+	display: flex;
+	flex-direction: row;
+	padding: .5rem;
+}
+form .form-field-group label {
+	display: block;
+	font-size: .8rem;
+	color: #999;
+	margin-bottom: .4rem;
+	text-align: center;
+}
+form .form-field input {
+	background: none;
+	border: none;
+	border-radius: .3rem;
+	color: #444;
+	padding: .5rem .5rem .25rem;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 1.6rem;
+	font-weight: bold;
+	text-align: center;
+	width: 10rem;
+}
+
+#game {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+#game > * {
+	margin-bottom: 1rem;
+}
+
+#newgame-button {
+	background: #293673;
+	border: none;
+	border-radius: .4rem;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	filter: saturate(1);
+	font-size: 1rem;
+	font-weight: bold;
+	margin: 2rem auto 0;
+	padding: .9rem 1.1rem .7rem;
+	pointer-events: all;
+	text-transform: uppercase;
+}
+#newgame-button:active {
+	filter: brightness(1.1);
+}
+
+/* game board table */ 
+
+#board {
+	border-spacing: .5rem;
+}
+
+#board thead , #board tbody {
+	display: table;
+	margin: 0;
+	padding: 0;
+}
+
+#board thead {
+	border: .3rem solid transparent;
+	margin-bottom: -.2rem;
+}
+#board tbody {
+	background: #293673;
+	border: .3rem solid #1d2753;
+	border-bottom-width: 1rem;
+	border-radius: 2rem 2rem .3rem .3rem;
+	box-shadow: -1px 5px 11px 5px rgba(0,0,0,.2);
+}
+
+#board th , #board td {
+	width: 3rem;
+	min-width: 3rem;
+	height: 3rem;
+	min-height: 3rem;
+	border-radius: 3rem;
+	background: #eee;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+	width: 3.2rem;
+	height: 3.2rem;
+	min-width: 3.2rem;
+	border: .3rem solid rgba(0,0,0,.2);
+	border-radius: 3rem;
+}
+
+#board .piece {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#board thead th {
+	border: dashed 1px rgba(0,0,0,.2);
+	cursor: pointer;
+	border-radius: 3rem;
+}
+
+#board thead th:hover {
+	background-color: rgba(255, 217, 0, 0.589);
+}
+
+/* game over styles */
+
+.gameover #board 
+{
+	pointer-events: none;
+	opacity: .05;
+}
+.gameover #board thead {
+	opacity: 0;
+}
+.gameover #players-form {
+	display: block;
+}
